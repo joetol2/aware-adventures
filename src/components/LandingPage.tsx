@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { MessageSquare, Shield, Clock, Mountain } from "lucide-react";
 import heroImage from "@/assets/hero-mountain.jpg";
 
@@ -13,9 +14,9 @@ const Navbar = () => (
       <a href="#features" className="hover:text-accent transition-colors">Features</a>
       <a href="#pricing" className="hover:text-accent transition-colors">Pricing</a>
     </div>
-    <a href="#pricing" className="px-5 py-2 rounded-lg bg-accent text-accent-foreground font-body font-semibold text-sm hover:brightness-110 transition-all">
+    <Link to="/auth" className="px-5 py-2 rounded-lg bg-accent text-accent-foreground font-body font-semibold text-sm hover:brightness-110 transition-all">
       Get Started
-    </a>
+    </Link>
   </nav>
 );
 
@@ -61,9 +62,9 @@ const Hero = () => (
         transition={{ delay: 0.9 }}
         className="flex flex-col sm:flex-row gap-4 justify-center"
       >
-        <a href="#pricing" className="px-8 py-4 rounded-lg font-body font-bold text-accent-foreground text-lg hover:brightness-110 transition-all" style={{ background: "var(--gradient-accent)" }}>
-          Start Your Free Trial
-        </a>
+        <Link to="/auth" className="px-8 py-4 rounded-lg font-body font-bold text-accent-foreground text-lg hover:brightness-110 transition-all" style={{ background: "var(--gradient-accent)" }}>
+          Start Free
+        </Link>
         <a href="#how-it-works" className="px-8 py-4 rounded-lg border-2 border-primary-foreground/30 text-primary-foreground font-body font-semibold text-lg hover:border-accent hover:text-accent transition-all">
           Learn More
         </a>
@@ -257,16 +258,23 @@ const Pricing = () => (
                 </li>
               ))}
             </ul>
-            <button
-              className={`w-full py-3 rounded-lg font-body font-bold text-sm transition-all ${
-                plan.highlight
-                  ? "text-accent-foreground hover:brightness-110"
-                  : "bg-primary text-primary-foreground hover:bg-primary/90"
-              }`}
-              style={plan.highlight ? { background: "var(--gradient-accent)" } : undefined}
-            >
-              {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
-            </button>
+            {plan.price === "Custom" ? (
+              <button className={`w-full py-3 rounded-lg font-body font-bold text-sm transition-all bg-primary text-primary-foreground hover:bg-primary/90`}>
+                Contact Sales
+              </button>
+            ) : (
+              <Link
+                to="/auth"
+                className={`block w-full py-3 rounded-lg font-body font-bold text-sm text-center transition-all ${
+                  plan.highlight
+                    ? "text-accent-foreground hover:brightness-110"
+                    : "bg-primary text-primary-foreground hover:bg-primary/90"
+                }`}
+                style={plan.highlight ? { background: "var(--gradient-accent)" } : undefined}
+              >
+                Get Started
+              </Link>
+            )}
           </motion.div>
         ))}
       </div>
