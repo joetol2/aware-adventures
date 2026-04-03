@@ -14,9 +14,9 @@ const Navbar = () => (
       <a href="#features" className="hover:text-accent transition-colors">Features</a>
       <a href="#pricing" className="hover:text-accent transition-colors">Pricing</a>
     </div>
-    <a href="#pricing" className="px-5 py-2 rounded-lg bg-accent text-accent-foreground font-body font-semibold text-sm hover:brightness-110 transition-all">
+    <Link to="/auth" className="px-5 py-2 rounded-lg bg-accent text-accent-foreground font-body font-semibold text-sm hover:brightness-110 transition-all">
       Get Started
-    </a>
+    </Link>
   </nav>
 );
 
