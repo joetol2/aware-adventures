@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { MessageSquare, Shield, Clock, Mountain } from "lucide-react";
 import heroImage from "@/assets/hero-mountain.jpg";
 
