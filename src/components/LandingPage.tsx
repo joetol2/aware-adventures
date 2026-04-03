@@ -258,16 +258,23 @@ const Pricing = () => (
                 </li>
               ))}
             </ul>
-            <button
-              className={`w-full py-3 rounded-lg font-body font-bold text-sm transition-all ${
-                plan.highlight
-                  ? "text-accent-foreground hover:brightness-110"
-                  : "bg-primary text-primary-foreground hover:bg-primary/90"
-              }`}
-              style={plan.highlight ? { background: "var(--gradient-accent)" } : undefined}
-            >
-              {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
-            </button>
+            {plan.price === "Custom" ? (
+              <button className={`w-full py-3 rounded-lg font-body font-bold text-sm transition-all bg-primary text-primary-foreground hover:bg-primary/90`}>
+                Contact Sales
+              </button>
+            ) : (
+              <Link
+                to="/auth"
+                className={`block w-full py-3 rounded-lg font-body font-bold text-sm text-center transition-all ${
+                  plan.highlight
+                    ? "text-accent-foreground hover:brightness-110"
+                    : "bg-primary text-primary-foreground hover:bg-primary/90"
+                }`}
+                style={plan.highlight ? { background: "var(--gradient-accent)" } : undefined}
+              >
+                Get Started
+              </Link>
+            )}
           </motion.div>
         ))}
       </div>
