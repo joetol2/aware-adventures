@@ -62,9 +62,9 @@ const Hero = () => (
         transition={{ delay: 0.9 }}
         className="flex flex-col sm:flex-row gap-4 justify-center"
       >
-        <a href="#pricing" className="px-8 py-4 rounded-lg font-body font-bold text-accent-foreground text-lg hover:brightness-110 transition-all" style={{ background: "var(--gradient-accent)" }}>
-          Start Your Free Trial
-        </a>
+        <Link to="/auth" className="px-8 py-4 rounded-lg font-body font-bold text-accent-foreground text-lg hover:brightness-110 transition-all" style={{ background: "var(--gradient-accent)" }}>
+          Start Free
+        </Link>
         <a href="#how-it-works" className="px-8 py-4 rounded-lg border-2 border-primary-foreground/30 text-primary-foreground font-body font-semibold text-lg hover:border-accent hover:text-accent transition-all">
           Learn More
         </a>
