@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Mountain, Mail, Lock, User, Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
@@ -76,10 +76,10 @@ export default function Auth() {
         className="w-full max-w-md"
       >
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-2 mb-4">
+          <Link to="/" className="flex items-center justify-center gap-2 mb-4">
             <Mountain className="h-8 w-8 text-accent" />
             <span className="font-display text-2xl font-bold text-foreground">Aware</span>
-          </div>
+          </Link>
           <h1 className="font-display text-3xl font-bold text-foreground mb-2">
             {isLogin ? "Welcome Back" : "Create Your Account"}
           </h1>

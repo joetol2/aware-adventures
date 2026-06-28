@@ -5,10 +5,10 @@ import heroImage from "@/assets/hero-mountain.jpg";
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-primary/80 backdrop-blur-md">
-    <div className="flex items-center gap-2">
+    <Link to="/" className="flex items-center gap-2">
       <Mountain className="h-6 w-6 text-accent" />
       <span className="font-display text-xl font-bold text-primary-foreground tracking-wide">Aware</span>
-    </div>
+    </Link>
     <div className="hidden md:flex items-center gap-8 font-body text-sm text-primary-foreground/80">
       <a href="#how-it-works" className="hover:text-accent transition-colors">How It Works</a>
       <a href="#features" className="hover:text-accent transition-colors">Features</a>
@@ -54,7 +54,7 @@ const Hero = () => (
         transition={{ delay: 0.7 }}
         className="font-body text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
       >
-        The simplest safety check-in for adventurers. Text your plans before you go — if you don't check back in, we alert your emergency contacts. No apps. No devices. Just peace of mind.
+        The simplest safety check-in for adventurers. Text your plans before you go. If you don't check back in, we alert your emergency contacts. No apps. No devices. Just peace of mind.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ const steps = [
   {
     icon: Clock,
     title: "Set Your Timer",
-    description: "Choose a custom check-in window — from a quick day hike to a multi-day expedition.",
+    description: "Choose a custom check-in window: from a quick day hike to a multi-day expedition.",
   },
   {
     icon: Shield,
@@ -129,7 +129,7 @@ const HowItWorks = () => (
 const features = [
   {
     title: "No Apps Required",
-    description: "Works via simple text messages — no downloads, no installations, no complicated setup.",
+    description: "Works via simple text messages. No downloads, no installations, no complicated setup.",
   },
   {
     title: "Automated Alerts",
@@ -137,7 +137,7 @@ const features = [
   },
   {
     title: "Customizable Timers",
-    description: "Tailor check-in windows to your activity — from a 2-hour hike to a week-long expedition.",
+    description: "Tailor check-in windows to your activity: from a 2-hour hike to a week-long expedition.",
   },
   {
     title: "Privacy First",
@@ -294,7 +294,7 @@ const QuoteSection = () => (
           "We understand that many adventurers want a safety solution that doesn't get in the way of their experience. With Aware, it's as easy as texting your plans, and we'll take care of the rest."
         </p>
         <footer className="font-body text-accent font-semibold">
-          — Joe Tolerico, Founder & CEO
+          Joe Tolerico, Founder & CEO
         </footer>
       </motion.blockquote>
     </div>
@@ -304,10 +304,10 @@ const QuoteSection = () => (
 const Footer = () => (
   <footer className="py-12 bg-primary">
     <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div className="flex items-center gap-2">
+      <Link to="/" className="flex items-center gap-2">
         <Mountain className="h-5 w-5 text-accent" />
         <span className="font-display text-lg font-bold text-primary-foreground">Aware</span>
-      </div>
+      </Link>
       <p className="font-body text-sm text-primary-foreground/50">
         Pagosa Springs, Colorado · © {new Date().getFullYear()} Aware Safety. All rights reserved.
       </p>

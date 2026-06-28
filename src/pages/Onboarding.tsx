@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mountain, ArrowRight, ArrowLeft, User, Phone, Shield, MapPin, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -151,10 +151,10 @@ export default function Onboarding() {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-border">
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <Mountain className="h-6 w-6 text-accent" />
           <span className="font-display text-xl font-bold text-foreground">Aware</span>
-        </div>
+        </Link>
         <div className="flex items-center gap-2">
           {steps.map((_, i) => (
             <div

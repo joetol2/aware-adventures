@@ -67,7 +67,7 @@ export default function Dashboard() {
           Your Basic plan is active. You're ready to start your first check-in.
         </p>
         <p className="font-body text-muted-foreground text-sm">
-          The check-in system is coming soon — we'll notify you when it's ready.
+          The check-in system is coming soon. We'll notify you when it's ready.
         </p>
       </div>
     </div>
