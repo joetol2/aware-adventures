@@ -17,7 +17,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/aware-adventures">
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />
