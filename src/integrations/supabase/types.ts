@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      check_ins: {
+        Row: {
+          id: string
+          user_id: string
+          destination: string
+          activity_type: string
+          notes: string | null
+          started_at: string
+          expected_return_at: string
+          checked_in_at: string | null
+          status: 'active' | 'completed' | 'missed' | 'cancelled'
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          destination: string
+          activity_type: string
+          notes?: string | null
+          started_at?: string
+          expected_return_at: string
+          checked_in_at?: string | null
+          status?: 'active' | 'completed' | 'missed' | 'cancelled'
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          destination?: string
+          activity_type?: string
+          notes?: string | null
+          started_at?: string
+          expected_return_at?: string
+          checked_in_at?: string | null
+          status?: 'active' | 'completed' | 'missed' | 'cancelled'
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       activity_preferences: {
         Row: {
           activity_type: string
