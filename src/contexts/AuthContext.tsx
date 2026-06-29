@@ -7,6 +7,7 @@ type AuthContextType = {
   loading: boolean;
   signIn: (user: User) => void;
   signOut: () => void;
+  completeSetup: () => void;
 };
 
 const AuthContext = createContext<AuthContextType>({
@@ -15,6 +16,7 @@ const AuthContext = createContext<AuthContextType>({
   loading: true,
   signIn: () => {},
   signOut: () => {},
+  completeSetup: () => {},
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -33,7 +35,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signIn = (u: User) => {
     storage.setUser(u);
     setUser(u);
+    // Re-read setup flag each time in case it was set in a previous session
     setIsSetupComplete(storage.isSetupComplete());
+  };
+
+  const completeSetup = () => {
+    setIsSetupComplete(true);
   };
 
   const signOut = () => {
@@ -43,7 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isSetupComplete, loading, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, isSetupComplete, loading, signIn, signOut, completeSetup }}>
       {children}
     </AuthContext.Provider>
   );

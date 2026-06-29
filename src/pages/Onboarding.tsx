@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mountain, ArrowRight, ArrowLeft, Phone, Shield, MapPin, Check } from "lucide-react";
 import { storage } from "@/lib/storage";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,6 +19,7 @@ const EXPERIENCE_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"];
 export default function Onboarding() {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { completeSetup } = useAuth();
   const [step, setStep] = useState(0);
 
   const [contactName, setContactName] = useState("");
@@ -46,6 +48,7 @@ export default function Onboarding() {
       storage.setActivities(selectedActivities);
     }
     storage.setSetupComplete();
+    completeSetup();
     toast({ title: "You're all set!", description: "Start your first check-in whenever you're ready." });
     navigate("/dashboard");
   };

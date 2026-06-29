@@ -2,23 +2,30 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { MessageSquare, Shield, Clock, Mountain } from "lucide-react";
 import heroImage from "@/assets/hero-mountain.jpg";
+import { useAuth } from "@/contexts/AuthContext";
 
-const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-primary/80 backdrop-blur-md">
-    <Link to="/" className="flex items-center gap-2">
-      <Mountain className="h-6 w-6 text-accent" />
-      <span className="font-display text-xl font-bold text-primary-foreground tracking-wide">Aware</span>
-    </Link>
-    <div className="hidden md:flex items-center gap-8 font-body text-sm text-primary-foreground/80">
-      <a href="#how-it-works" className="hover:text-accent transition-colors">How It Works</a>
-      <a href="#features" className="hover:text-accent transition-colors">Features</a>
-      <a href="#pricing" className="hover:text-accent transition-colors">Pricing</a>
-    </div>
-    <Link to="/auth" className="px-5 py-2 rounded-lg bg-accent text-accent-foreground font-body font-semibold text-sm hover:brightness-110 transition-all">
-      Get Started
-    </Link>
-  </nav>
-);
+const Navbar = () => {
+  const { user, isSetupComplete } = useAuth();
+  const destination = user && isSetupComplete ? "/dashboard" : "/auth";
+  const label = user && isSetupComplete ? "Dashboard" : "Get Started";
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-primary/80 backdrop-blur-md">
+      <Link to="/" className="flex items-center gap-2">
+        <Mountain className="h-6 w-6 text-accent" />
+        <span className="font-display text-xl font-bold text-primary-foreground tracking-wide">Aware</span>
+      </Link>
+      <div className="hidden md:flex items-center gap-8 font-body text-sm text-primary-foreground/80">
+        <a href="#how-it-works" className="hover:text-accent transition-colors">How It Works</a>
+        <a href="#features" className="hover:text-accent transition-colors">Features</a>
+        <a href="#pricing" className="hover:text-accent transition-colors">Pricing</a>
+      </div>
+      <Link to={destination} className="px-5 py-2 rounded-lg bg-accent text-accent-foreground font-body font-semibold text-sm hover:brightness-110 transition-all">
+        {label}
+      </Link>
+    </nav>
+  );
+};
 
 const Hero = () => (
   <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
